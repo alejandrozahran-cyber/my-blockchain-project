@@ -1,0 +1,69 @@
+services:
+  l1-node:
+    build: 
+      context: ./l1_golang
+      dockerfile: Dockerfile
+      target: builder
+    ports:
+      - "8545:8545"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NUSA_ENV=development
+    command: ["./nusa-node", "--dev"]
+    networks:
+      - nusa-network
+
+  l2-vm:
+    build: 
+      context: ./l2_rust
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - nusa-network
+
+  l3-ai:
+    build: 
+      context: ./l3_python
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - L1_NODE_URL=http://l1-node:8545
+    networks:
+      - nusa-network
+    depends_on:
+      - redis
+      - l1-node
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - nusa-network
+    volumes:
+      - redis-data:/data
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: nusachain
+      POSTGRES_USER: nusa
+      POSTGRES_PASSWORD: nusa123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - nusa-network
+
+volumes:
+  redis-data:
+  postgres-data:
+
+networks:
+  nusa-network:
+    driver: bridge

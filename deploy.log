@@ -1,0 +1,105 @@
+🚀 Starting deployment...
+📦 Initializing genesis block...
+bash: ./bin/nusa-node: No such file or directory
+⚠️ Genesis init failed!
+🐳 Starting Docker network...
+time="2025-12-06T21:57:04+07:00" level=warning msg="C:\\Users\\USER\\nusa-chain2\\docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.42kB done
+#1 DONE 0.0s
+
+#2 [l2-vm internal] load build definition from Dockerfile
+#2 transferring dockerfile: 316B 0.0s done
+#2 DONE 0.0s
+
+#3 [l3-ai internal] load build definition from Dockerfile
+#3 transferring dockerfile: 394B 0.0s done
+#3 DONE 0.0s
+
+#4 [auth] library/python:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [auth] library/rust:pull token for registry-1.docker.io
+#5 DONE 0.0s
+
+#6 [l3-ai internal] load metadata for docker.io/library/python:3.13-slim
+#6 DONE 2.1s
+
+#7 [l2-vm internal] load metadata for docker.io/library/rust:1.76
+#7 DONE 2.1s
+
+#8 [l3-ai internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [l2-vm internal] load .dockerignore
+#9 transferring context: 2B done
+#9 DONE 0.0s
+
+#10 [l3-ai 1/5] FROM docker.io/library/python:3.13-slim@sha256:05b118ecc93ea09e30569706568fb251c71b77d2a3908d338b77be033e162b59
+#10 resolve docker.io/library/python:3.13-slim@sha256:05b118ecc93ea09e30569706568fb251c71b77d2a3908d338b77be033e162b59 0.0s done
+#10 DONE 0.0s
+
+#11 [l3-ai 2/5] WORKDIR /app
+#11 CACHED
+
+#12 [l2-vm internal] load build context
+#12 DONE 0.0s
+
+#13 [l2-vm 1/5] FROM docker.io/library/rust:1.76@sha256:d36f9d8a9a4c76da74c8d983d0d4cb146dd2d19bb9bd60b704cdcf70ef868d3a
+#13 resolve docker.io/library/rust:1.76@sha256:d36f9d8a9a4c76da74c8d983d0d4cb146dd2d19bb9bd60b704cdcf70ef868d3a
+#13 resolve docker.io/library/rust:1.76@sha256:d36f9d8a9a4c76da74c8d983d0d4cb146dd2d19bb9bd60b704cdcf70ef868d3a 0.1s done
+#13 DONE 0.1s
+
+#12 [l2-vm internal] load build context
+#12 transferring context: 322B done
+#12 DONE 0.0s
+
+#14 [l2-vm 2/5] WORKDIR /app
+#14 CACHED
+
+#15 [l2-vm 3/5] COPY . .
+#15 CACHED
+
+#16 [l3-ai internal] load build context
+#16 ...
+
+#17 [l2-vm 4/5] RUN cargo build --release
+#17 0.525 error: could not find `Cargo.toml` in `/app` or any parent directory
+#17 ERROR: process "/bin/sh -c cargo build --release" did not complete successfully: exit code: 101
+
+#16 [l3-ai internal] load build context
+#16 transferring context: 6.23MB 0.8s done
+#16 CANCELED
+------
+ > [l2-vm 4/5] RUN cargo build --release:
+0.525 error: could not find `Cargo.toml` in `/app` or any parent directory
+------
+Dockerfile:10
+
+--------------------
+
+   8 |     
+
+   9 |     # Build release binary
+
+  10 | >>> RUN cargo build --release
+
+  11 |     
+
+  12 |     # Copy binary ke folder /bin
+
+--------------------
+
+target l2-vm: failed to solve: process "/bin/sh -c cargo build --release" did not complete successfully: exit code: 101
+
+⚠️ Docker network failed!
+📜 Deploying smart contracts...
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
+⚠️ Contract deployment failed!
+🌐 NUSA Chain is running!
+API Endpoints:
+  L1 JSON-RPC: http://localhost:8545
+  L3 AI API: http://localhost:8000
+  Explorer: http://localhost:3000
+✅ Deployment finished. Press Enter to exit...

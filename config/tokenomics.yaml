@@ -1,0 +1,32 @@
+token:
+  name: "NUSA"
+  symbol: "NUSA"
+  total_supply: 25000000
+  decimals: 18
+
+distribution:
+  public: 50%
+  community_dev: 25%
+  treasury: 15%
+  founders: 10%
+
+vesting:
+  founders:
+    lock_period: 24  # bulan
+    vesting_period: 36  # bulan
+
+consensus:
+  type: "PoVC"
+  block_time: 5  # detik
+  monthly_reward_pool: 100000  # NUSA
+  halving_interval: 48  # bulan
+
+anti_whale:
+  max_balance_percentage: 2
+  fee_schedule:
+    - threshold: 0.5
+      fee_percentage: 1
+    - threshold: 1
+      fee_percentage: 3
+    - threshold: 2
+      fee_percentage: 10

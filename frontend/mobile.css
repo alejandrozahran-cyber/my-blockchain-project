@@ -1,0 +1,87 @@
+/* frontend/mobile.css */
+@media (max-width: 640px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav-link {
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .stats-bar {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    .table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .output {
+        font-size: 0.8rem;
+        max-height: 200px;
+    }
+    
+    .modal-content {
+        width: 95% !important;
+        margin: 10px !important;
+    }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stats-bar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Dark mode always */
+@media (prefers-color-scheme: light) {
+    body {
+        background: var(--darker);
+        color: var(--light);
+    }
+}
